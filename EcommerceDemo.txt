@@ -1,0 +1,51 @@
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.function.Function;
+
+public class EcommerceDemo {
+
+    public static void main(String[] args) {
+
+        //product list
+        List<Product> products = List.of(
+                new Electronics("Laptop", 1200),
+                new Clothing("TShirt", 25),
+                new Grocery("Milk", 3),
+                new Electronics("Phone", 800),
+                new Clothing("Jeans", 60)
+        );
+
+        //search using streams
+        System.out.println("Search for Phone:");
+        products.stream()
+                .filter(p -> p.getName().toLowerCase().contains("phone"))
+                .forEach(p -> System.out.println(p.getName()));
+
+        //filter by category usedlambda
+        System.out.println("\nElectronics only:");
+        products.stream()
+                .filter(p -> p.getCategory().equals("Electronics"))
+                .forEach(p -> System.out.println(p.getName()));
+
+        //sort by price
+        System.out.println("\nSorted by price:");
+        products.stream()
+                .sorted(Comparator.comparing(Product::getPrice))
+                .forEach(p -> System.out.println(p.getName() + " - $" + p.getPrice()));
+
+        //create order
+        Order order = new Order();
+        order.addProduct(products.get(0));
+        order.addProduct(products.get(2));
+
+        //lambdas for tax shipping and discount
+        Function<Double, Double> tax = total -> total * 1.10;
+        Function<Double, Double> shipping = total -> total + 15;
+        Function<Double, Double> discount = total -> total * 0.90;
+
+        double finalTotal = order.applyCharges(tax, shipping, discount);
+
+        System.out.println("\nOrder subtotal: $" + order.calculateTotal());
+        System.out.println("Final total: $" + finalTotal);
+    }
+}
