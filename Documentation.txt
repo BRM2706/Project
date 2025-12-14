@@ -1,0 +1,71 @@
+Product:
+
+getName()
+
+Purpose: Returns the product’s name so it can be displayed or searched
+
+getPrice()
+
+Purpose: Returns the product’s price for calculations like totals and taxes.
+
+getCategory()
+
+Purpose: Returns the product’s categor for filtering
+
+Electronics / Clothing / Grocery Constructor:
+
+Purpose: Creates a product and assigns its specific category automatically.
+
+UserConstructor:
+
+Purpose: Creates a user with a username.
+
+Customer Constructor:
+
+Purpose: Creates a customer user who can place orders.
+
+Admin Constructor:
+
+Purpose: Creates an admin user who can manage products or orders.
+
+Order Class:
+
+addProduct():
+
+Purpose: Adds a product to the shopping cart.
+
+calculateTotal():
+
+Purpose: Calculates the total price of all products in the cart
+
+applyCharges():
+
+Purpose: Applies tax, shipping, and discount calculations to the order total using lambdas.
+
+getCart():
+
+Purpose: Returns the list of products in the cart
+
+EcommerceDemo:
+
+main():
+
+Purpose: Runs the application, creates products and orders, performs search, filtering, sorting, and displays results.
+
+Java Stream & Lambda Methods Used:
+
+stream():
+
+Purpose: Converts a collection into a stream for processing
+
+filter():
+
+Purpose: Selects items that match a condition .
+
+sorted():
+
+Purpose: Orders products based on price or other criteria
+
+forEach():
+
+Purpose: Performs an action on each item in a stream
